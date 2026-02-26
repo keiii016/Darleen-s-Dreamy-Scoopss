@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Darleen's Dreamy Scoops</title>
+
+<style>
+*{
+    margin:0px;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background:pink;
+}
+
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 50px;
+    background:linear-gradient(90deg,#ff9aa2,#ff6b81);
+    color:white;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:20px;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+}
+
+
+section{
+    padding:60px 40px;
+    display:none;
+}
+
+#home{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    height:100vh;
+    background-image: "background.PNG";
+    color:palevioletred;
+    align-items: center;
+}
+
+#home h1{
+    font-size:45px;
+    margin: bottom 30px;
+}
+
+button{
+    margin-top: 60px;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:#ff6b81;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#f55a73;
+    transform:scale(1.05);
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.product{
+    background:peachpuff;
+    padding:15px;
+    width:200px;          
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    text-align:center;
+    text-align-last: center;
+    transition:0.3s;
+}
+
+.product img{
+    width:100%;
+    height:150px;         
+    object-fit:cover;    
+    border-radius:15px;
+}
+
+
+
+#product-details{
+    max-width:600px;
+    margin:auto;
+    background:rgb(250, 138, 175);
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+
+#product-details img{
+    width: 230px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin: 20px auto;
+    display: block;
+}
+#contact{
+    background: peachpuff;
+    max-width:600px;
+    margin:auto;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+input, textarea{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#f58092;
+    color:white;
+}
+</style>
+
+<script>
+function showPage(id){
+    document.querySelectorAll("section").forEach(sec=>{
+        sec.style.display="none";
+    });
+    document.getElementById(id).style.display="block";
+    window.scrollTo(0,0);
+}
+
+function showDetails(title,img,desc){
+    document.getElementById("detail-title").innerText=title;
+    document.getElementById("detail-image").src=img;
+    document.getElementById("detail-desc").innerText=desc;
+    showPage("product-details");
+}
+
+function backToProducts(){
+    showPage("products");
+}
+
+window.onload=function(){
+    showPage("home");
+}
+</script>
+</head>
+
+<body>
+
+<header>
+<div class="logo">Darleen's Dreamy Scoops 🍦</div>
+<nav>
+<ul>
+<li><a href="#" onclick="showPage('home')">Home</a></li>
+<li><a href="#" onclick="showPage('products')">Products</a></li>
+<li><a href="#" onclick="showPage('about-us')">About Us</a></li>
+<li><a href="#" onclick="showPage('contact')">Contact Us</a></li>
+</ul>
+</nav>
+</header>
+
+<section id="home">
+<h2 style="text-align:center; margin-bottom:60px;"></h2>
+<h2>Come taste the magic of our flavors 🍨</h2>
+<button onclick="showPage('products')">Order Now</button>
+</section>
+
+<section id="product-details">
+    <h2 id="detail-title"></h2>
+    <img id="detail-image">
+    <p id="detail-desc"></p>
+    <button onclick="backToProducts()">Back</button>
+</section>
+
+<section id="products">
+<h4 style="text-align:center; margin-bottom:40px;"> Ice Cream Cake</h4>
+<div class="container">
+
+
+<div class="product">
+<img src="biscoff cake.jpg">
+<h5><b>Biscoff Ice Cream Cake</b></h5> <br>
+<button onclick="showDetails('Biscoff Ice Cream Cake','biscoff.jpg','Creamy ice cream base with crunchy Biscoff cookie crumbles and a smooth cookie butter topping.')">View Details</button>
+</div>
+
+<div class="product">
+<img src="oreo cake.jpg">
+<h5><b>Oreo Ice Cream Cake</b></h5><br>
+<button onclick="showDetails('Oreo Ice Cream Cake','oreo.jpg','Creamy and smooth ice cream layered with crunchy Oreo pieces; chocolate drizzle adds a silky touch.')">View Details</button>
+</div>
+
+<div class="product">
+<img src="ferrero.jpg"><br>
+<h5><b>Ferrero Ice Cream Cake</b></h5><br>
+<button onclick="showDetails('Ferrero Cake','ferrero cake.jpg','Creamy ice cream with crunchy hazelnut pieces and chocolate ganache; soft but with nutty crunch.')">View Details</button>
+</div>
+
+<div class="product">
+<img src="banana cake.jpg"><br>
+<h5><b>Banana Ice Cream Cake</b></h5>
+
+<button onclick="showDetails('Banana Ice Cream Cake','Banana.jpg','Creamy ice cream layers with soft cake and smooth caramel drizzle; soft with occasional chewy fruit pieces.')">View Details</button>
+</div>
+
+<div class="product">
+<img src="pistachio.jpg">
+<h5><b>Pistachio Ice Cream Cake</b></h5>
+<button onclick="showDetails(' Pistachio Ice Cream Cake','pistachio cake.jpg','A simple and refreshing pistachio ice cream cake recipe made with instant pudding mix and a cookie crumb crust!.')">View Details</button>
+</div>
+
+<div class="product">
+<img src="strawberry.jpg">
+<h5><b>Strawberry Ice Cream Cake</b></h5>
+<button onclick="showDetails('Strawberry Ice Cream Cake','Strawberry slice.jpg','Creamy ice cream layers with soft cake and smooth caramel drizzle; soft with occasional chewy fruit pieces.')">View Details</button>
+</div>
+
+<div class="product">
+<img src="caramel cake].jpg">
+<h5><b>Caramel Ice Cream Cake</b></h5>
+<button onclick="showDetails('Caramel Ice Cream Cake','Caramel slice.jpg','Creamy and smooth ice cream layered with chewy caramel chunks and crunchy toppings; soft with gooey caramel streaks.')">View Details</button>
+</div>
+
+<div class="product">
+<img src="cherry cake.jpg">
+<h5><b>Cherry Ice Cream Cake</b></h5>
+<button onclick="showDetails('Cherry Ice Cream Cake','cherry slice.jpg','Creamy ice cream with soft cake layers and juicy cherry pieces; smooth with small bursts of cherry juice.')">View Details</button>
+</div>
+
+
+<div class="product">
+<img src="walnut ice cream cake.htm">
+<h5><b>Walnut Ice Cream Cake</b></h5>
+<button onclick="showDetails('Walnut Ice Cream Cake','walnut slice.jpg','Creamy ice cream with crunchy walnut bits and chocolate drizzle; crunchy and smooth contrast.')">View Details</button>
+</div>
+
+<div class="product">
+<img src="orange ice cream cake.jpg">
+<h5><b>Orange Ice Cream Cake</b></h5>
+<button onclick="showDetails('Orange Ice Cream Cake','orange slice.jpg','Creamy ice cream with soft cake layers, chocolate drizzle, and candied orange slices; smooth with slightly chewy fruit and chocolate pieces.')">View Details</button>
+</div>
+
+</section>
+
+<section id="product-details">
+<h2 id="detail-title"></h2>
+<img id="detail-image">
+<p id="detail-desc"></p>
+<button onclick="backToProducts()">Back</button>
+</section>
+
+<section id="contact">
+<h2 style="text-align:center;">Contact Us</h2>
+<form>
+<input type="text" placeholder=" Name:" required>
+<input type="email" placeholder="Email:" required>
+<textarea placeholder="Your Message" rows="5" required></textarea>
+<button type="submit">Send Message</button>
+</form>
+</section>
+<section id="about-us" style="padding: 100px20px;">
+  <h3 align="center">About Us</h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <p>Welcome to our little ice cream cake paradise 🍰🍦. We make super creamy, dreamy, and oh-so-yummy ice cream cakes that are perfect for birthdays, celebrations, or just because! Every cake is made with love, sprinkles of happiness, <br>and lots of smiles—because life is sweeter with ice cream!".</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</section>
+
+<footer>
+© 2026 Darleen's Dreamy Scoops 🍦 | All Rights Reserved
+</footer>
+
+</body>
+</html>
